@@ -22,7 +22,7 @@ services:
       - /Users/andy/docker-data/dms/mail-logs/:/var/log/mail/
       - /Users/andy/docker-data/dms/config/:/tmp/docker-mailserver/
       - /etc/localtime:/etc/localtime:ro
-    # restart: always
+    restart: always
     stop_grace_period: 1m
     cap_add:
       - NET_ADMIN

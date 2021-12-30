@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /opt/homebrew/bin/bash
 
 # version   v1.0.0
 # executed  manually / via Make
@@ -152,6 +152,9 @@ function _run_in_new_container
     ${CRI} pull "${IMAGE_NAME}"
   fi
 
+  echo ${CRI} run --rm "${USE_TTY}" \
+    -v "${CONFIG_PATH}:${DMS_CONFIG}${USE_SELINUX}" \
+    "${IMAGE_NAME}" "${@:+$@}"
   ${CRI} run --rm "${USE_TTY}" \
     -v "${CONFIG_PATH}:${DMS_CONFIG}${USE_SELINUX}" \
     "${IMAGE_NAME}" "${@:+$@}"
